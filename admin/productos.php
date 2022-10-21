@@ -12,9 +12,12 @@ require_once "../config/conexion.php";
     <?php
     include("includes/header.php")
     ?>
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Productos</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="abrirProducto"><i class="fas fa-plus fa-sm text-white-50"></i> Nuevo</a>
+    <div class=" d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800 ">Productos</h1>
+    </div>
+    <div class="align-items-center justify-content-between mb-4 text-right">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#productos">
+            <i class="fa fa-plus mr-2"></i>Nuevo Producto</button>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -46,7 +49,7 @@ require_once "../config/conexion.php";
                                 <td><?php echo $data['cantidad']; ?></td>
                                 <td><?php echo $data['categoria']; ?></td>
 
-                                <td><button class="btn btn-success btnEditar" data-id="<?php echo $data['id']; ?>" data-nombre="<?php echo $data['nombre']; ?>" data-cantidad="<?php echo $data['cantidad']; ?>" data-descripcion="<?php echo $data['descripcion']; ?>" data-precio_normal="<?php echo $data['precio_normal']; ?>" data-precio_rebajado="<?php echo $data['precio_rebajado']; ?>" data-categoria="<?php echo $data['categoria']; ?>" data-toggle="modal" data-target="#modalEditar">
+                                <td><button class="btn btn-info btnEditar" data-id="<?php echo $data['id']; ?>" data-nombre="<?php echo $data['nombre']; ?>" data-cantidad="<?php echo $data['cantidad']; ?>" data-descripcion="<?php echo $data['descripcion']; ?>" data-precio_normal="<?php echo $data['precio_normal']; ?>" data-precio_rebajado="<?php echo $data['precio_rebajado']; ?>" data-categoria="<?php echo $data['id_categoria']; ?>" data-toggle="modal" data-target="#modalEditar">
                                         <i class="fa fa-edit"></i></button></td>
                                 <td>
                                     <form method="post" action="eliminar.php?accion=pro&id=<?php echo $data['id']; ?>" class="d-inline eliminar">
@@ -71,7 +74,7 @@ require_once "../config/conexion.php";
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="./insertarprod.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+                    <form action="./insertarPro.php" method="POST" enctype="multipart/form-data" autocomplete="off">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -117,12 +120,12 @@ require_once "../config/conexion.php";
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="imagen">Foto</label>
-                                    <input type="file" class="form-control" name="foto" required>
+                                    <label for="foto">Foto</label>
+                                    <input type="file" class="form-control" id="foto" name="foto" required>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="submit">Registrar</button>
+                        <button class="btn btn-success" type="submit">Registrar</button>
                     </form>
                 </div>
             </div>
@@ -133,7 +136,7 @@ require_once "../config/conexion.php";
     <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form method="POST" enctype="multipart/form-data">
+                <form action="./editarprod.php" method="POST" enctype="multipart/form-data">
                     <div class="modal-header bg-gradient-primary text-white">
                         <h5 class="modal-title" id="modalEditarLabel">Editar Producto</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -175,29 +178,35 @@ require_once "../config/conexion.php";
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="categoria">Categoria</label>
-                                    <select id="categoria1" class="form-control" name="categoria" required>
+                                    <label for="categoria">Nuevo Categoria</label>
+                                    <select name="categoria" id="categoria1" class="form-control" required>
                                         <?php
                                         $res = $conexion->query("select * from  categorias");
-                                        while ($data = mysqli_fetch_array($res)) {
-                                            echo '<option value="' . $data['categoria'] . '">' . $data['categoria'] . '</option>';
+                                        while ($fila = mysqli_fetch_array($res)) {
+                                            echo '<option value="' . $fila['id'] . '">' . $fila['categoria'] . '</option>';
                                         }
                                         ?>
-
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="imagen">Foto</label>
-                                    <input id="foto" type="file" class="form-control" name="foto" required>
+                                    <input id="imagen1" class="form-control" type="text" name="imagen" placeholder="Imagen" >
+                                    <?php
+                                    $query = mysqli_query($conexion, "select * from  productos");
+                                    while ($data = mysqli_fetch_assoc($query)) { ?>
+                                        <tr>
+                                            <td><img class="img-thumbnail" src="../assets/img/<?php echo $data['imagen']; ?>" width="50"></td>
+                                        </tr>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary editar">Actualizar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success editar">Actualizar</button>
                     </div>
                 </form>
             </div>

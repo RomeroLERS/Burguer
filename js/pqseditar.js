@@ -21,7 +21,6 @@ $(document).ready(function(){
     $(".btnEditar").click(function(){
   
       idEditar=$(this).data('id');
-      var id_pq=$(this).data('id_pq');
       var num_pq=$(this).data('num_pq');
       var area=$(this).data('area');
       var elemento=$(this).data('elemento');
@@ -32,8 +31,6 @@ $(document).ready(function(){
   
       // alert(orientacion);
   
-  
-      $("#id_pq1").val(id_pq);
       $("#num_pq1").val(num_pq);
       $("#area1").val(area);
       $("#elemento1").val(elemento);

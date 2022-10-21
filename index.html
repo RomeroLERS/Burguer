@@ -1,28 +1,42 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <!-- Basic -->
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <!-- Site Metas -->
-    <title>Hamburguesas Sanchez</title>
-    <link rel="shortcut icon" href="img/ham.png">
+    <title>Auditorías USUAP</title>
+    <link rel="shortcut icon" href="images/afac_logo.png">
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
+
     <!-- Site Icons -->
     <link rel="shortcut icon" href="#" type="image/x-icon" />
     <link rel="apple-touch-icon" href="#" />
-    <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/pogo-slider.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-</head>
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Pogo Slider CSS -->
+    <link rel="stylesheet" href="css/pogo-slider.min.css" />
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css" />
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
 
 <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
 
@@ -38,7 +52,7 @@
     <header class="top-header">
         <nav class="navbar header-nav navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="./index.html"><img src="img/logo.png" alt="image"></a>
+                <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="image"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd"
                     aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
                     <span></span>
@@ -48,42 +62,51 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
                         <li><a class="nav-link active" href="./index.html">Inicio</a></li>
-                        <li><a class="nav-link " href="views/productos.html">Productos</a></li>
-                        <li><a class="nav-link" href="views/promociones.html">Promociones</a></li>
-                        <li><a class="nav-link" href="views/contacto.html">Contacto</a></li>
-                        <li><a class="nav-link" href="views/login.html">Acceder</a></li>
+                        <li><a class="nav-link " href="./views/productos.html">Productos</a></li>
+                        <li><a class="nav-link" href="./views/promociones.html">Promociones</a></li>
+                        <li><a class="nav-link" href="./views/contacto.html">Contacto</a></li>
+                        <li><a class="nav-link" href="./views/login.html">Iniciar sesión</a></li>
                     </ul>
                 </div>
+                <!--<div class="search-box">
+                    <input type="text" class="search-txt" placeholder="Buscar">
+                    <a class="">
+                        <span class="fa fa-search" style="font-size: 20px; margin-top: 15px;" styaria-hidden="true"></span>
+                    </a>
+                </div>-->
             </div>
         </nav>
     </header>
     <!-- End header -->
-
     <!-- Start Banner -->
-    <div class="banner">
+    
     <div class="ulockd-home-slider">
         <div class="container-fluid">
             <div class="row">
-                <div class="pogoSlider" id="js-main-slider">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="slide_text">
-                                    <br>
-                                    <h3>Hamburguesas Sanchez</h3>
-                                    <br>
+                <div class="banner">
+                    <div class="pogoSlider" id="js-main-slider">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="slide_text">
+                                        <br>
+                                        <h3>Hamburguesas Sanchez</h3>
+                                        <br>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- .pogoSlider -->
+                
                 </div>
-                <!-- .pogoSlider -->
+                
             </div>
         </div>
     </div>
-    </div>
     <!-- End Banner -->
     <!-- section -->
+
     
 
     <div class="footer_bottom">
@@ -96,7 +119,7 @@
         </div>
     </div>
 
-    <a href="#" id="scroll-to-top" class="hvr-radial-out"><img src="img/top.png"><i class="fa fa-angle-up"></i></a>
+    <a href="#" id="scroll-to-top" class="hvr-radial-out"><i class="fa fa-angle-up"></i></a>
 
     <!-- ALL JS FILES -->
     <script src="js/jquery.min.js"></script>
@@ -105,7 +128,6 @@
     <!-- ALL PLUGINS -->
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/jquery.pogo-slider.min.js"></script>
-    <script src="js/slider-index.js"></script>
     <script src="js/smoothscroll.js"></script>
     <script src="js/form-validator.min.js"></script>
     <script src="js/isotope.min.js"></script>

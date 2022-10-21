@@ -1,0 +1,100 @@
+<div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="imagen">Foto</label>
+                                    <select id="imagen1" class="form-control" name="imagen" required>
+                                        <?php
+                                        $res = $conexion->query("select * from  productos");
+                                        while ($data = mysqli_fetch_array($res)) {
+                                            echo '<option value="' . $data['imagen'] . '">' . $data['imagen'] . '</option>';
+                                        }
+                                        ?>
+
+                                    </select>
+                                </div>
+                            </div>
+-----------------------------------------
+<div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="imagen">Foto</label>
+                                    <?php
+                                    $query = mysqli_query($conexion, "select * from  productos");
+                                    while ($data = mysqli_fetch_assoc($query)) { ?>
+                                        <tr>
+                                            <td><img class="img-thumbnail" src="../assets/img/<?php echo $data['imagen']; ?>" width="50"></td>
+                                        </tr>
+                                    <?php } ?>
+                                </div>
+                            </div>
+-----------------------------------------------------
+<div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="imagen">Foto</label>
+                                    <?php
+                                    $query = mysqli_query($conexion, "select * from  productos");
+                                    while ($data = mysqli_fetch_assoc($query)) { ?>
+                                        <tr>
+                                            <td><img id="imagen1" name="imagen" class="img-thumbnail" src="../assets/img/<?php echo $data['imagen']; ?>" width="50"></td>
+                                        </tr>
+                                    <?php } ?>
+                                </div>
+                            </div>
+-----------------------------------------------
+<div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="imagen">Foto</label>
+                                    <select id="imagen1" class="form-control" name="imagen" required>
+                                        <?php
+                                        $res = $conexion->query("select * from  productos");
+                                        while ($data = mysqli_fetch_array($res)) {
+                                            echo '<option value="' . $data['imagen'] . '">' . $data['imagen'] . '</option>';
+                                        }
+                                        ?>
+
+                                    </select>
+                                </div>
+                            </div>
+-----------------------------------------------
+<?php
+                                    $path = "files/".$id;
+                                    if(file_exists($path)){
+                                        $directorio = opendir($path);
+                                        while($archivo = readdir($directorio)){
+                                            if(!is_dir($archivo)){
+                                                echo "<div data='".$path."/".$archivo.
+                                                "'><a href='".$path."/".$archivo."'
+                                                title='Ver Archivo Adjunto'><span class='glyphicon
+                                                glyphicon-picture'></span></a>";
+                                                echo "$archivo <a href='#' class='delete'
+                                                title='Ver Archivo Adjunto' ><span 
+                                                class='glyphicon glyphicon-trash'
+                                                aria-hidden='true'></span></a></div>";
+                                                echo "<img src='files/$id/$archivo' width='300'/>";
+                                            }
+                                        }
+                                        
+                                    }
+                                    ?>
+------------------------------------------------------
+<div class="form-group">
+                                    <label for="archivo">Foto</label>
+                                    <input id="imagen" class="form-control" type="file" name="imagen" required>
+                                    <?php
+                                    $path = "files/" . $id;
+                                    if (file_exists($path)) {
+                                        $directorio = opendir($path);
+                                        while ($imagen = readdir($directorio)) {
+                                            if (!is_dir($imagen)) {
+                                                echo "<div data='" . $path . "/" . $imagen .
+                                                    "'><a href='" . $path . "/" . $imagen . "'
+                                                title='Ver Archivo Adjunto'><span class='glyphicon
+                                                glyphicon-picture'></span></a>";
+                                                echo "$imagen <a href='#' class='delete'
+                                                title='Ver Archivo Adjunto' ><span 
+                                                class='glyphicon glyphicon-trash'
+                                                aria-hidden='true'></span></a></div>";
+                                                echo "<img src='files/$id/$imagen' width='300'/>";
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                </div>
